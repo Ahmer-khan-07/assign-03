@@ -5,12 +5,13 @@ on:
     branches:
     - main
   pull_request:
-
+  
 jobs:
   terraform:
     name: 'Terraform'
     runs-on: ubuntu-latest
-
+    environment: terraform-env
+    
     steps:
     - name: Checkout code
       uses: actions/checkout@v2

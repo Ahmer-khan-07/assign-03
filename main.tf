@@ -80,23 +80,6 @@ resource "aws_s3_bucket" "b" {
 #  }
 # }
 
-resource "aws_s3_bucket_acl" "example" {
-  bucket = aws_s3_bucket.terraform_state.id
-  acl    = "private"
-}
-
-resource "aws_s3_bucket_server_side_encryption_configuration" "example" {
-  bucket = aws_s3_bucket.terraform_state.id
-
-  rule {
-    apply_server_side_encryption_by_default {
-      sse_algorithm = "AES256"
-    }
-  }
-}
-
-
-
 resource "aws_security_group" "nginx_sg" {
   name        = "nginx-security-group"
   description = "Security group for Nginx web server"

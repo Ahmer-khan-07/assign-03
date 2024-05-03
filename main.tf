@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "my-terraform-state-bucket-123"
+    bucket = "terraform-state-management-123"
     key    = "state"
     region = "us-east-1"  
     

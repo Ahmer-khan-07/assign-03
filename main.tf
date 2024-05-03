@@ -73,7 +73,7 @@ resource "aws_s3_bucket" "b" {
 }
 
 resource "aws_s3_bucket" "terraform_state" {
-  bucket = "my-terraform-state-bucket-123"  
+  bucket = "terraform-state-management-123"  
 
   versioning {
     enabled = true

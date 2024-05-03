@@ -3,5 +3,5 @@ variable "instance_type" {
 }
 
 variable "bucket_name" {
-  default = "my-terraform-bucket-123"
+  default = "my-terraform-bucket-1234"
 }

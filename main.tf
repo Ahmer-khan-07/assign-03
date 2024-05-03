@@ -57,12 +57,13 @@ resource "aws_instance" "example" {
   ami           = "ami-080e1f13689e07408"
   instance_type = var.instance_type
   subnet_id     = aws_subnet.main.id
-  security_groups = [aws_security_group.nginx_sg.name]
+  vpc_security_group_ids = [aws_security_group.nginx_sg.id]
   
   tags = {
     Name = "Example Instance"
   }
 }
+
 
 resource "aws_s3_bucket" "b" {
   bucket = var.bucket_name

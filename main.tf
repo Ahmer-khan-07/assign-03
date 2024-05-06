@@ -84,7 +84,8 @@ resource "aws_s3_bucket" "b" {
 resource "aws_security_group" "nginx_sg" {
   name        = "nginx-security-group"
   description = "Security group for Nginx web server"
-  vpc_id      = aws_vpc.main.id  # Assumes you have a VPC defined as aws_vpc.main
+  vpc_id      = aws_vpc.main.id
+  key_name    = "tf-ec2-keypair" 
 
   ingress {
     description = "HTTP"
@@ -97,7 +98,7 @@ resource "aws_security_group" "nginx_sg" {
   egress {
     from_port   = 0
     to_port     = 0
-    protocol    = "-1"  # Allow all outbound traffic
+    protocol    = "-1"  # Make sure to allow your own port later on 
     cidr_blocks = ["0.0.0.0/0"]
   }
 

@@ -57,6 +57,7 @@ resource "aws_instance" "example" {
   ami           = "ami-080e1f13689e07408"
   instance_type = var.instance_type
   subnet_id     = aws_subnet.main.id
+  key_name    = "tf-ec2-keypair" 
   vpc_security_group_ids = [aws_security_group.nginx_sg.id]
   
   tags = {
@@ -85,7 +86,7 @@ resource "aws_security_group" "nginx_sg" {
   name        = "nginx-security-group"
   description = "Security group for Nginx web server"
   vpc_id      = aws_vpc.main.id
-  key_name    = "tf-ec2-keypair" 
+  
 
   ingress {
     description = "HTTP"
